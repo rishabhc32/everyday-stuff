@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<title>My first vue app</title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{ message }}</p>
+	</div>
+	
+	<div id="app-2">
+		<span v-bind:title='message'>
+			Hover your mouse here to see a dynamically bound title.
+		</span>
+	</div>
+
+	<div id="app-3" v-if="seen">
+		<br>
+		<span> I am here bro!</span>
+	</div>
+
+	<div id="app-4">
+		<h4>Vue Loop</h4>
+		<ol title="Vue loop">
+			<li v-for="todo in list">
+				{{ todo.item }}
+			</li>
+		</ol>
+	</div>
+
+	<div id="app-5">
+		<p>{{ message }}</p>
+		<button v-on:click="reverseMessage">Reverse Message</button>
+	</div>
+
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				message: "Hello Vue!"
+			}
+		})
+
+		var app2 = new Vue({
+			el: '#app-2',
+			data: {
+				message: 'Date & time is ' + new Date().toLocaleString()
+			}
+		})
+
+		var app3 = new Vue({
+			el: '#app-3',
+			data: {
+				seen: false
+			}
+		})
+
+		var app4 = new Vue({
+			el: '#app-4',
+			data: {
+				list: [
+					{item: 'This is 1'},
+					{item: 'This is 2'},
+					{item: 'This three!'}
+				]
+			}
+		})
+
+		var app5 = new Vue({
+			el: '#app-5',
+			data: {
+				message: 'Hello RC!'
+			},
+			methods: {
+				reverseMessage: function () {
+					this.message = this.message.split(' ').reverse().join(' ')
+				}
+			}
+		})
+	</script>
+</body>
+</html>
