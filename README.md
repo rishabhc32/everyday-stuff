@@ -1,4 +1,4 @@
-# RC everyday stuff
+# RC's everyday stuff
 
 * [25 Feb 2018]
   * Vue practice repo, [link](/vue-practice)
