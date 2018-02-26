@@ -6,3 +6,6 @@
 * [26 Feb 2018]
   * Go repo, [link](/go)
   * hello-world.go, [link](/go/hello-world.go)
+  * C repo, [link](/C-stuff)
+  * function-pointer.c, [link](/C-stuff/function-pointer.c)
+  
