@@ -1,3 +1,5 @@
+// Reference: https://www.cprogramming.com/tutorial/function-pointers.html
+
 #include <stdio.h>
 
 long int add(int x, int y ) {
