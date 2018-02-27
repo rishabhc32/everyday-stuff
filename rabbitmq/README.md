@@ -34,16 +34,16 @@ In the diagram below, __P__ is our producer and __C__ is our consumer. The box i
 
 ##### NodeJS
 * _module_: `npm install amqplib`
-* _send.js_: Send message to queue
-* _receive.js_: Receive message form queue
+* [_send.js_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/send.js): Send message to queue
+* [_receive.js_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/receive.js): Receive message form queue
 ##### Python
 * _module_: `pip install pika`
-* _receive.py_: Receive message from queue
+* [_receive.py_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/receive.py): Receive message from queue
 ##### Steps
-* Install _RabbitMQ_
+* [Install](https://www.rabbitmq.com/download.html) _RabbitMQ_
 * Start MQ server: `sudo rabbitmq-server`
-* Send Message: `node send.js`, [_send.js_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/send.js)
-* Receive Message: `node receive.js` _or_ `python receive.py`, [_receive.js_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/receive.js) or [_receive.py_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/receive.py)
+* Send Message: `node send.js`
+* Receive Message: `node receive.js` _or_ `python receive.py`
 #### Output
 * __Starting RabbitMQ server__
 ![Starting Server](https://i.imgur.com/jsGRIlb.png)
