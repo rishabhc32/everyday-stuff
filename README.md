@@ -8,6 +8,7 @@
     * `hello-world.go`, [link](/go/hello-world.go)
   * __C__ repo, [link](/c)
     * `function-pointer.c`, [link](/c/function-pointer.c)
-  * __js__ repo, [link](/js)
-    * `js/rabbitmq`, [link](/js/rabbitmq) 
+  * __JS__ repo, [link](/js)
 * [27 Feb 2018]    
+  * __RabbitMQ__ repo, [link](/rabbitmq)
+    * `README.md`, [link](/rabbitmq/README.md)
