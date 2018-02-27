@@ -52,4 +52,4 @@ In the diagram below, __P__ is our producer and __C__ is our consumer. The box i
 ![Sending and receiving message](https://i.imgur.com/Fz2MpRo.png)
 ### Rerference
 * [RabbitMQ 'hello-world' tutorial](https://www.rabbitmq.com/tutorials/tutorial-one-javascript.html)
-* [Understanding MQ](https://www.cloudamqp.com/blog/2014-12-03-what-is-message-queuing.html)
+* [Understanding MQ](https://www.cloudamqp.com/blog/2014-12-03-what-is-message-queuing.html), [Wikipedia](https://en.wikipedia.org/wiki/Message_queue)
