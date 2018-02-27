@@ -42,8 +42,8 @@ In the diagram below, __P__ is our producer and __C__ is our consumer. The box i
 ##### Steps
 * Install _RabbitMQ_
 * Start MQ server: `sudo rabbitmq-server`
-* Send Message: `node send.js`
-* Receive Message: `node receive.js` _or_ `python receive.py`
+* Send Message: `node send.js`, [_send.js_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/send.js)
+* Receive Message: `node receive.js` _or_ `python receive.py`, [_receive.js_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/receive.js) or [_receive.py_](https://github.com/rishabhc32/everyday-stuff/blob/master/rabbitmq/receive.py)
 #### Output
 * __Starting RabbitMQ server__
 ![Starting Server](https://i.imgur.com/jsGRIlb.png)
