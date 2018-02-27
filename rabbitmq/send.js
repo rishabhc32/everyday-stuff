@@ -7,8 +7,9 @@ amqp.connect('amqp://localhost', (err, conn) => {
 		var q = 'hello'
 
 		ch.assertQueue(q, {durable: false})
-		ch.sendToQueue(q, new Buffer('hello, world'))
-		console.log(' [x] sent hello world ')
+		msg = 'I am disco dancer!!'
+		ch.sendToQueue(q, new Buffer(msg))
+		console.log(' [x] sent %s ', msg)
 	})
 	setTimeout( () => {
 		conn.close()
