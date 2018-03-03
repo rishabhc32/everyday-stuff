@@ -10,8 +10,8 @@ __Steps involved:__
 1. Generate _email-ID_ and _username_, like `yo@mydomain.com` and `yoyo`.
 2. Go to _devRant_, fill _signup_ details, click _Submit_.
 3. Check if total _email count_ in `imap` account increased by 1
-    a. `No:` Go to __3__
-    b. `Yes:` Go to __4__
+    1. `No:` Go to __3__
+    2. `Yes:` Go to __4__
 4. Get confirmation link from _email_, verify the user.
 5. Go to the _rant_.
 6. __Upvote__.
