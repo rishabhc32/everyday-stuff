@@ -12,3 +12,6 @@
 * [27 Feb 2018]    
   * __RabbitMQ__ repo, [link](/rabbitmq)
     * `README.md`, [link](/rabbitmq/README.md)
+* [2 March 2018]
+  * __devRant Sticker__ repo, [link](/devrant-sticker)
+    * `README.md`, [link](/devrant-sticker/README.md)
