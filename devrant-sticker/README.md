@@ -25,7 +25,7 @@ __Steps involved:__
     * `export IMAP_HOST=host`, for _IMAP_HOST_
     * `export IMAP_USER=user`, for _IMAP USER_
     * `export IMAP_PSSWD=imap_password`, for _IMAP PASSWORD_ 
-* I know the code as well the design is horrible, but it works. Using _classes_ is a much better design choice than normal _functions_ but I didn't have that much time and this thing worked.
+* I know, the code, as well the design is horrible, but it works. Using _classes_ is a much better design choice than normal _functions_ but I didn't have that much time and this thing worked.
 * Whole _source code_ is in the file `rantupvote.py`.
 
 ### References
