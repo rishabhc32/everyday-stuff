@@ -15,3 +15,4 @@
 * [2 March 2018]
   * __devRant Sticker__ repo, [link](/devrant-sticker)
     * `README.md`, [link](/devrant-sticker/README.md)
+* [6 March 2018]  
