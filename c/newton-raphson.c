@@ -8,7 +8,7 @@ double Func(double x){
 }
 
 double derivativeFunc(double x){
-	return 3*x*x -2*x;
+	return 3*x*x - 2*x;
 }
 
 double newtonRaphson(double x){
