@@ -1,3 +1,5 @@
+//Reference: https://www.geeksforgeeks.org/program-for-newton-raphson-method/
+
 #include <stdio.h>
 #include <math.h>
 
