@@ -17,4 +17,4 @@
     * `README.md`, [link](/devrant-sticker/README.md)
 * [5 March 2018]  
   * `newton-raphson.c` in __C__ repo, [link](/c/newton-raphson.c)
-* [8 March 2018] 
+* [9 March 2018] 
