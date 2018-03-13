@@ -18,3 +18,7 @@
 * [5 March 2018]  
   * `newton-raphson.c` in __C__ repo, [link](/c/newton-raphson.c)
 * [9 March 2018] 
+
+* [13 March 2018]
+  * __Python__ repo, [link](/python)
+    * `fire-detection.py` fire detection in `opencv`, [link](/python/fire-detection.py)
