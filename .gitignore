@@ -2,3 +2,5 @@ node_modules
 a.out
 __pycache__
 calc-interpreter.py
+RCalc
+*.o
