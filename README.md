@@ -18,7 +18,10 @@
 * [5 March 2018]  
   * `newton-raphson.c` in __C__ repo, [link](/c/newton-raphson.c)
 * [9 March 2018] 
-
+  * __C++__ repo, [link](/cpp)
+    * `calc-intepreter`, [link](/cpp)
 * [13 March 2018]
   * __Python__ repo, [link](/python)
     * `fire-detection.py` fire detection in `opencv`, [link](/python/fire-detection.py)
+* [25 March 2018] 
+  * `calc-interpreter-7` in __C++__ repo, [link](/cpp/calc-interpreter-7)
