@@ -81,4 +81,20 @@ If we derive a class `derivedFromPrivateDerived` from `privateDerived`, variable
 Suppose you have two derived classes B and C that have a common base class A, and you also have another class D that inherits from B and C. You can declare the base class A as virtual to ensure that B and C share the same subobject of A.
 A virtual base class ensures that only one copy of that class is inherited.
 
+## Polymorphism in C++
+* Having many forms, concept of Object Oriented Programming.
+* Example, *Real life example of polymorphism, a person at a same time can have different characteristic. Like a man at a same time is a father, a husband, a employee. So a same person posses have different behavior in different situations. This is called polymorphism.*
 
+**Two types:**
+1. Compile Time polymorphism
+	* Achieved by **function overloading** or **operator overloading**.
+		* **Function Overloading:** 
+			* Multiple functions with same name but different parameters. Funtions can be overloaded by change in **number of arguments** or **type in arguments**.
+			* [Link](https://www.geeksforgeeks.org/polymorphism-in-c/)
+			* [Rules of Function Overloading](https://www.geeksforgeeks.org/function-overloading-in-c/)
+		* **Operator Overloading** 
+			* Overloading operators, like `+, -, (), etc.`
+			* [Link](https://www.geeksforgeeks.org/polymorphism-in-c/)
+			* Syntax:` return_type operator + ()`
+2. Runtime Polymorphism
+	* **Function Overriding**
