@@ -25,3 +25,10 @@
     * `fire-detection.py` fire detection in `opencv`, [link](/python/fire-detection.py)
 * [25 March 2018] 
   * `calc-interpreter-7` in __C++__ repo, [link](/cpp/calc-interpreter-7)
+* [6 April 2018]
+  * `OOPs -- Notes` in __C++__ repo, [link](/cpp/OOPs)
+* [8 April 2018]
+  * __Competitive Programming__ repo, [link](/cpp/competitive)
+    * `three-way-partition.cpp` in __C++__ repo, [link](/cpp/competitive/three-way-partition.cpp)
+    * `sorted-subsequence-3-linear-time.cpp` in __C++__ repo, [link](/cpp/competitive/sorted-subsequence-3-linear-time.cpp)
+  
