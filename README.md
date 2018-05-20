@@ -32,5 +32,7 @@
     * `three-way-partition.cpp` in __C++__ repo, [link](/cpp/competitive/three-way-partition.cpp)
     * `sorted-subsequence-3-linear-time.cpp` in __C++__ repo, [link](/cpp/competitive/sorted-subsequence-3-linear-time.cpp)
 * [20 May 2018]
-  * `RLE -- Run Length Encoding` in __C++__ repo, [link](/cpp/RLE)
+  * `RLE -- Run Length Encoding` repo, [link](/cpp/RLE)
+    * `rle.cpp` in __C++__ repo, [link](/cpp/RLE/rle.cpp)
+    * `pixel_image_generate.cpp` in __C++__ repo, [link](/cpp/RLE/pixel_image_generate.cpp)
   
