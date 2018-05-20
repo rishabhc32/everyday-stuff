@@ -27,3 +27,7 @@ __Usage__
 The binary executable after compiling is, `rle`
 * `rle <image-path>` 
     * `rle ./images/hand.jpg`
+
+__Screenshot__
+
+![screenshot](https://raw.githubusercontent.com/rishabhc32/everyday-stuff/master/cpp/RLE/images/screen.png)
