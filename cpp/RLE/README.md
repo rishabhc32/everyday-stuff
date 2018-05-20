@@ -24,6 +24,7 @@ __Compiling__
     * `g++ -std=c++11 -o rle rle.cpp -lm -lpthread -lX11`
 
 __Usage__
+
 The binary executable after compiling is, `rle`
 * `rle <image-path>` 
     * `rle ./images/hand.jpg`
