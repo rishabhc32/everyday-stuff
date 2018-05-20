@@ -6,3 +6,5 @@ RCalc
 *.o
 input.txt
 output.txt
+rle
+rle_debug
