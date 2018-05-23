@@ -15,12 +15,12 @@ main(int argc, char *argv[])
         return 1;
     }
 
-    Py_Initialize();
+    Py_Initialize(); //initializing the python interpreter
 
     PyRun_SimpleString("import sys");
     PyRun_SimpleString("sys.path.append(\".\")");
 
-    pName = PyUnicode_DecodeFSDefault(argv[1]);
+    pName = PyUnicode_DecodeFSDefault(argv[1]); //decodes null terminated string to python unicode object
     /* Error checking of pName left out */
 
     pModule = PyImport_Import(pName);
@@ -70,6 +70,7 @@ main(int argc, char *argv[])
         fprintf(stderr, "Failed to load \"%s\"\n", argv[1]);
         return 1;
     }
-  
+
+    Py_Finalize();
     return 0;
 }
