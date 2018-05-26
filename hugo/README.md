@@ -8,5 +8,5 @@
 * `cd man`
 * `gzip ./*`
 * `sudo cp ./* /usr/share/man/man1/`
-* `man hugo`, `man hugo-version`, `man hugo-gen`, ...
+* `man hugo`, `man hugo-server`, `man hugo-gen`, ...
 
