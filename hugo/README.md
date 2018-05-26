@@ -1,6 +1,7 @@
 # hugo
 
 ### Generating hugo man pages
+`hugo`, when installed via `snap` does not provide manpages. So, we have to generate them ourselves.
 * `cd ~`
 * `hugo gen man`
     * This will create `./man` directory, having hugo's manpages.
