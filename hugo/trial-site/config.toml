@@ -1,3 +1,15 @@
 languageCode = "en-us"
 title = "RC trial blog"
 theme = "material"
+#baseURL = "example.com"
+
+copyright = "© 2018 RC"
+
+paginate = 3
+paginatePath = "page"
+
+[languages.en]
+	[[languages.en.menu.main]]
+		url = "/"
+		name = "Home"
+		weight = 1
