@@ -39,3 +39,6 @@
   * `c_in_python.c` in __C__ repo, [link](https://github.com/rishabhc32/everyday-stuff/blob/master/c/c_in_python.c)
 * [26 May 2018]
   * __hugo__ repo, [link](/hugo)
+* [27 May 2018]
+    * `trial-site` in __hugo__ repo, [link](/hugo/trial-site)
+    
