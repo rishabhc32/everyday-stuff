@@ -8,12 +8,12 @@ copyright = "© 2018 RC"
 paginate = 3
 paginatePath = "page"
 
-[languages.en]
-	[[languages.en.menu.main]]
+[menu]
+	[[menu.main]]
 		url = "/"
 		name = "Home"
 		weight = 1
-	[[languages.en.menu.main]]
+	[[menu.main]]
 		url = "/about"
 		name = "About"
 		weight = 2
