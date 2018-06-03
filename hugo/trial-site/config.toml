@@ -1,6 +1,6 @@
-languageCode = "en-us"
 title = "RC trial blog"
 theme = "material"
+#languageCode = "en-us"
 #baseURL = "example.com"
 
 copyright = "© 2018 RC"
@@ -17,3 +17,29 @@ paginatePath = "page"
 		url = "/about"
 		name = "About"
 		weight = 2
+
+  [[menu.footer1]]
+    url = "#"
+    name = "Service 1"
+    weight = 1
+  [[menu.footer1]]
+    url = "#"
+    name = "Service 2"
+    weight = 2
+
+  [[menu.footer2]]
+    url = "/"
+    name = "Home"
+    weight = 1
+  [[menu.footer2]]
+    url = "/about/"
+    name = "About"
+    weight = 2
+
+[params]
+  [[params.footer_menus]]
+    name = "Services"
+    menu = "footer1"
+  [[params.footer_menus]]
+    name = "Links"
+    menu = "footer2"
