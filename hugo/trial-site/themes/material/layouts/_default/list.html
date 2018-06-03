@@ -1,5 +1,7 @@
 {{ define "main" }}
 
+<main>
+
 {{ $truncate := default true .Site.Params.truncate }}
 {{ range .Paginator.Pages }}
 
@@ -12,5 +14,7 @@
 {{ end }}
 
 {{ partial "paginator" . }}
+
+</main>
 
 {{ end }}
