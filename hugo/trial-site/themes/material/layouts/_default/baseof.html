@@ -28,11 +28,11 @@
       {{ partial "header" . }}
     {{ end }}
 
-    
-    {{ block "main" . }}
-      <!-- The part of the page that begins to differ between templates -->
-    {{ end }}
-    
+    <main>
+      {{ block "main" . }}
+        <!-- The part of the page that begins to differ between templates -->
+      {{ end }}
+    </main>
 
     {{ block "footer" . }}
       {{ partial "footer" . }}
