@@ -1,7 +1,6 @@
 ---
 title: "About"
 date: 2018-05-29T10:36:32+05:30
-menu: "main"
 author: "John Doe"
 cover_image: "images/image1.jpeg"
 ---

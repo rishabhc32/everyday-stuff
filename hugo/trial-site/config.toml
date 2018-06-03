@@ -13,3 +13,7 @@ paginatePath = "page"
 		url = "/"
 		name = "Home"
 		weight = 1
+	[[languages.en.menu.main]]
+		url = "/about"
+		name = "About"
+		weight = 2
