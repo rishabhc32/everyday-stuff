@@ -5,9 +5,10 @@ date: 2018-05-29T11:58:42+05:30
 draft: true
 ---
 
-# devRant Stickers
 So, [devRant](https://devrant.com/) is giving free stickers to everyone who get more than `20++` on an single rant. 
 I wanted the stickers but it would take some time before I can get _20++_ on single rant. So I devised a method to create proxy users and `++` my rant.
+
+<!--more-->
 
 In my domain, I setup a _catch-all_ domain which forwards all mails sent on non-exsistent `MX records`. E.g. if an email is sent to a non-exsisting email ID like `email@mydomain.com`, it is forwarded to my default _email-ID_. Therefore, opening possibility of infinite username and email-IDs.
 
