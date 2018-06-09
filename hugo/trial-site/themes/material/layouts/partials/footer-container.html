@@ -8,7 +8,7 @@
     {{ $linksCols := .Scratch.Get "linksCols" }}
     {{ $contentCols := (sub 12 $linksCols) }}
     <div class="col s12 l{{ $contentCols }}">
-        {{ partial "footer-copyright" . }}
+        {{ partial "footer-content" . }}
     </div>
 </div>
 
