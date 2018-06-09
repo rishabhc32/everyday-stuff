@@ -1,4 +1,4 @@
-title = "RC trial blog"
+title = "Zap!"
 theme = "material"
 disqusShortname = "zapcircle"
 
@@ -15,7 +15,7 @@ paginatePath = "page"
     url = "/"
     name = "Home"
     weight = 1
-    
+
   [[menu.main]]
     url = "/about"
     name = "About"
