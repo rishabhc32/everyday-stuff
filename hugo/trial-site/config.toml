@@ -1,45 +1,35 @@
 title = "RC trial blog"
 theme = "material"
+disqusShortname = "zapcircle"
+
 #languageCode = "en-us"
 #baseURL = "example.com"
 
-copyright = "© 2018 RC"
+copyright = "© 2018 Zap"
 
 paginate = 3
 paginatePath = "page"
 
 [menu]
-	[[menu.main]]
-		url = "/"
-		name = "Home"
-		weight = 1
-	[[menu.main]]
-		url = "/about"
-		name = "About"
-		weight = 2
-
-  [[menu.footer1]]
-    url = "#"
-    name = "Service 1"
-    weight = 1
-  [[menu.footer1]]
-    url = "#"
-    name = "Service 2"
-    weight = 2
-
-  [[menu.footer2]]
+  [[menu.main]]
     url = "/"
     name = "Home"
     weight = 1
-  [[menu.footer2]]
-    url = "/about/"
+    
+  [[menu.main]]
+    url = "/about"
     name = "About"
     weight = 2
 
 [params]
-  [[params.footer_menus]]
-    name = "Services"
-    menu = "footer1"
-  [[params.footer_menus]]
-    name = "Links"
-    menu = "footer2"
+    url1 = "https://github.com/rishabhc32"
+    name1 = "RC"
+ 
+    url2 = "https://github.com/mittalprince"
+    name2 = "mittalprince"
+
+    url3 = "https://github.com/geekychaser"
+    name3 = "geekychaser"
+
+    url4 = "https://github.com/rohit3463"
+    name4 = "Rohit"
