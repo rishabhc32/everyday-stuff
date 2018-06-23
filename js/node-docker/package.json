@@ -1,0 +1,14 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "RC",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
