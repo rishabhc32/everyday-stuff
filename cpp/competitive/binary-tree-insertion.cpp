@@ -42,7 +42,7 @@ public:
         queue<LevelOrderTraversal*> q;
         LevelOrderTraversal *temp_node = this;
 
-        while(temp_node->left_node != nullptr && temp_node->right_node!= nullptr) {
+        while(temp_node->left_node != nullptr && temp_node->right_node != nullptr) {
             q.push(temp_node->left_node);
             q.push(temp_node->right_node);
 
@@ -77,7 +77,7 @@ int main() {
     root->insert(12);
     cout<<endl;
     root->Traverse();
-    
+
     return 0;
 }
 
