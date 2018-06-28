@@ -37,13 +37,11 @@ node* construct_expression_tree(string postfix) {
         node *temp = new_node(c);
 
         if(isoperand(c)) {
-            node *right = s.top();
+            temp->right = s.top();
             s.pop();
-            node *left = s.top();
+            temp->left = s.top();
             s.pop();
-
-            temp->left = left;
-            temp->right = right;
+            
             s.push(temp);
         } 
         else   
