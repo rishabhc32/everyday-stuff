@@ -13,17 +13,26 @@ inline node* new_node(int data) {
     node* temp = new node;
     temp->data = data;
     return temp;
+} 
+
+bool if_foldable(node*, node*);
+
+bool check_foldable(node *root) {
+    if(root == nullptr) 
+        return true;
+
+    return if_foldable(root->left, root->right);
 }
 
-bool if_foldable(node *root) {
-    if(root==nullptr)
+bool if_foldable(node *left, node *right) {
+    if(left == nullptr && right == nullptr)
         return true;
-    else if(root->left != nullptr && root->right != nullptr)
-        return 
-            !(if_foldable(root->left->left) ^ if_foldable(root->right->right)) && 
-            !(if_foldable(root->left->right) ^ if_foldable(root->right->left));
-    else 
-        return false;   
+    else if(left == nullptr || right == nullptr)
+        return false;
+    else    
+        return  
+            if_foldable(left->left, right->right) &&
+            if_foldable(left->right, right->left);  
 }
 
 int main() {
@@ -32,11 +41,10 @@ int main() {
     root->right = new_node(15);
     root->right->left = new_node(9);
     root->right->left->left = new_node(11);
-     root->left->right = new_node(0);
+    root->left->right = new_node(0);
+    root->left->right->right = new_node(17);
 
-
-
-    cout<<if_foldable(root)<<endl;
+    cout<<check_foldable(root)<<endl;
 
     return 0;
 }
