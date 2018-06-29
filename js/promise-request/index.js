@@ -1,3 +1,11 @@
+/*
+    https://javascript.info/async
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+*/
+
 const request = require('request')
 const fetch = require('node-fetch')
 
@@ -51,6 +59,7 @@ let another_response = async function() {
     options.url = 'yoyo'
     get_response().then(null, (err) => console.log(`Error: ${err.message}`))
 
+    //error handling with await
     try {
         let result = await get_response()
     } catch(err) {
