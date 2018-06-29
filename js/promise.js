@@ -1,7 +1,7 @@
 /*
     https://javascript.info/async
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 */
 
 new Promise((resolve, reject) => {
