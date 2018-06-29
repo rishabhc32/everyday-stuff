@@ -1,3 +1,9 @@
+/*
+    https://javascript.info/async
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
+*/
+
 new Promise((resolve, reject) => {
     console.log('Initial')
 
