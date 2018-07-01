@@ -49,7 +49,7 @@ node* get_leftmost(node *root) {
     return root;
 }
 
-void threaded_inorder(node* root) {
+void threaded_inorder_traversal(node* root) {
     node *curr = get_leftmost(root);
 
     while(curr != nullptr) {
@@ -79,7 +79,7 @@ int main() {
 
     get_inorder(root, &inorder_traversal);
     make_threads(inorder_traversal);
-    threaded_inorder(root);
+    threaded_inorder_traversal(root);
 
     return 0;
 }
