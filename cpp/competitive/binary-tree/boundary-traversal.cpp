@@ -17,6 +17,7 @@ node* newNode(int data) {
     temp->right = nullptr;
     return temp;
 }
+
 void printLeftBoundary(node* root) {
     if(root != nullptr && root->left != nullptr) {
         cout<<root->data<<" ";
@@ -66,7 +67,7 @@ int main() {
     t->right = newNode(2);
     t->right->right = newNode(3);
     t->right->right->right = newNode(4);
-    
+
     printBoundary(t);
     cout<<endl;
 
