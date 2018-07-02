@@ -13,18 +13,19 @@ struct node {
 node* newNode(int data) {
     node* temp = new node;
     temp->data = data;
-    temp->left = temp->right = nullptr;
+    temp->left = nullptr; 
+    temp->right = nullptr;
     return temp;
 }
 void printLeftBoundary(node* root) {
-    if(root->left != nullptr) {
+    if(root != nullptr && root->left != nullptr) {
         cout<<root->data<<" ";
         printLeftBoundary(root->left);
     }
 }
 
 void printRightBoundary(node* root) {
-    if(root->right != nullptr) {
+    if(root != nullptr & root->right != nullptr) {
         printRightBoundary(root->right);
         cout<<root->data<<" ";
     }
@@ -42,7 +43,8 @@ void printLeaf(node* root) {
 }
 
 void printBoundary(node* root) {
-    printLeftBoundary(root);
+    cout<<root->data<<" ";
+    printLeftBoundary(root->left);
     printLeaf(root);
     printRightBoundary(root->right);
 }
@@ -58,6 +60,14 @@ int main() {
     root->right->right        = newNode(25);
 
     printBoundary(root);
+    cout<<endl;
+
+    node* t = newNode(1);
+    t->right = newNode(2);
+    t->right->right = newNode(3);
+    t->right->right->right = newNode(4);
+    
+    printBoundary(t);
     cout<<endl;
 
     return 0;
