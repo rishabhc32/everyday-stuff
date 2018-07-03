@@ -29,23 +29,23 @@ void inorder_traversaal(node* root) {
     }
 }
 
-node* special_tree() {
-    static int index = 0;
-
+node* special_wrapper(int& index) {
     if(index > sizeof(pre)/sizeof(int))
         return nullptr;
     
     node* t = newNode(pre[index]);
     
     if(preLN[index] == 'N') {
-        ++index;
-        t->left = special_tree();
-
-        ++index;
-        t->right = special_tree();
+        t->left = special_wrapper(++index);
+        t->right = special_wrapper(++index);
     }
 
     return t;
+}
+
+node* special_tree() {
+    int index = 0;
+    return special_wrapper(index);
 }
 
 int main() {
