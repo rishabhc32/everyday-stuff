@@ -23,6 +23,7 @@ const int preorder[] = {1, 2, 4, 8, 9, 5, 10, 10, 3, 6, 7, 12, 13};
 node* make_tree(int start, int end) {
     static int index = 0;
     int root_index;
+    
     if(start < end) {
         for(int i = start ; i <= end ; ++i) {
             if(inorder[i] == preorder[index]) {
