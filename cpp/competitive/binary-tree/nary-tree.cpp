@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
 
@@ -18,10 +19,31 @@ void postorder(Node* root) {
     if(root == nullptr)
         return;
     
-    for(auto i : root->child) {
+    for(auto& i : root->child) {
         postorder(i);
     }
     cout<<root->data<<" ";
+}
+
+void levelorder(Node* root) {
+    if(root == nullptr)
+        return;
+
+    queue<Node *> q;
+    q.push(root);
+
+    while(q.empty() == false) {
+        Node* t = q.front();
+        q.pop();
+
+        cout<<t->data<<" ";
+
+        for(auto i : t->child)
+            if(i != nullptr)
+                q.push(i);
+    }
+
+    cout<<endl;
 }
 
 int main() {
@@ -41,6 +63,7 @@ int main() {
     
     postorder(root);
     cout<<endl;
+    levelorder(root);
 
     return 0;
 }
