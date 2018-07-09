@@ -49,19 +49,21 @@ bool isSubtree(node* T, node* S) {
     if(T == nullptr)
         return false;
 
-    string T_inorder = "", T_preorder = "";
-    string S_inorder = "", S_preorder = "";
-
+    string T_inorder = "", S_inorder = "";
     storeInorder(T, T_inorder);
-    storePreorder(T, T_preorder);
-
     storeInorder(S, S_inorder);
+
+    if(T_inorder.find(S_inorder) == string::npos)
+        return false;
+    
+    string T_preorder = "", S_preorder = "";
+    storePreorder(T, T_preorder);    
     storePreorder(S, S_preorder);
 
-    if(T_inorder.find(S_inorder) != string::npos && T_preorder.find(S_preorder) != string::npos)
-        return true;
+    if(T_preorder.find(S_preorder) == string::npos)
+        return false;
     
-    return false;
+    return true;
 }
 
 int main() {
