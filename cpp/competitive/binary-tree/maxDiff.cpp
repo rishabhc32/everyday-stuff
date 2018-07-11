@@ -33,7 +33,7 @@ int maxDiffFunction(node* root) {
     if( (root->data - min(l, r)) > maxDiff )
         maxDiff = root->data - min(l ,r);
 
-    return (l < r ? l : r);
+    return min(root->data, min(l, r));
 } 
 
 int main() {
