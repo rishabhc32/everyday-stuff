@@ -73,17 +73,17 @@ int main() {
     inorder(root);
  
     printf("\nDelete 20\n");
-    root = deleteNode(root, 20);
+    deleteNode(root, 20);
     printf("Inorder traversal of the modified tree \n");
     inorder(root);
  
     printf("\nDelete 30\n");
-    root = deleteNode(root, 30);
+    deleteNode(root, 30);
     printf("Inorder traversal of the modified tree \n");
     inorder(root);
  
     printf("\nDelete 50\n");
-    root = deleteNode(root, 50);
+    deleteNode(root, 50);
     printf("Inorder traversal of the modified tree \n");
     inorder(root);
     cout<<endl;
