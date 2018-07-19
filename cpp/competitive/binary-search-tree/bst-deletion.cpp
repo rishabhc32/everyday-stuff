@@ -37,13 +37,11 @@ node* delete_node(node* root, int key) {
         root->right = delete_node(root->right, key);
     
     else {
-        if(root->left == nullptr) {
-            node* temp = root->right;
-            delete root;
-            return temp;
-        }
-        else if(root->right == nullptr) {
-            node* temp = root->left;
+        if(root->left == nullptr || root->right == nullptr) {
+            node* temp = root->left == nullptr ?
+                root->right :
+                root->left;
+
             delete root;
             return temp;
         }
