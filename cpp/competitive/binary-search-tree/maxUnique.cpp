@@ -3,14 +3,14 @@
 #include <iostream>
 #include <vector>
 #include <set>
-#include <map>
+#include <unordered_map>
 
 using namespace std;
 
 int main() {
     vector<int> v{2, 4, 4, 2, 1};
-    map<int, int> m;
-    set<int> s;
+    unordered_map<int, int> m;
+    set<int, std::greater<int> > s;
 
     int k = 3, del_pos = 0, n = v.size();
 
@@ -31,7 +31,7 @@ int main() {
         if(s.size() == 0)
             cout<<"Nothing\n ";
         else    
-            cout<<*s.rbegin()<<" ";
+            cout<<*s.begin()<<" ";
         
         m[v.at(del_pos)]--;
 
