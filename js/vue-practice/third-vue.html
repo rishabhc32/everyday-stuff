@@ -1,0 +1,29 @@
+<div id="happ">
+    <ol>
+        <todo-item 
+            v-for="i in list"
+            v-bind:todo_data="i.text"
+            v-bind:key="i.id"
+        >    
+        </todo-item>
+    </ol>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    Vue.component('todo-item', {
+        props: ['todo_data'],
+        template: '<li>{{todo_data}}</li>'
+    })
+
+    var app = new Vue({
+        el: '#happ',
+        data: {
+            list: [
+            { id: 0, text: 'Vegetables' },
+            { id: 1, text: 'Cheese' },
+            { id: 2, text: 'Stuff' }
+            ]
+        }
+    })
+</script>
