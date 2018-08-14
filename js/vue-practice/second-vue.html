@@ -24,7 +24,7 @@
                 }, 0)
             }
         },
-        created() {
+        created: function() {
             fetch('https://api.myjson.com/bins/74l63')
             .then(res => {
                 return res.json()
