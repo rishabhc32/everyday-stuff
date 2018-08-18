@@ -1,0 +1,37 @@
+<div id="try">
+    <hitle 
+        v-for="p in posts"
+        v-bind:title="p"
+    ></hitle>
+
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    Vue.component('button-counter', {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        template: '<button @click="count++">Clicked {{count}} times</button>'
+    })
+</script>
+<script>
+    Vue.component('hitle', {
+        props: ['title'],
+        template: '<h1>{{title}}</h1>'
+    })
+</script>
+<script>
+    var vm = new Vue({
+        el: "#try",
+        data: {
+            posts: ['First', 'Second', 'Third']
+        }
+    })
+</script>
