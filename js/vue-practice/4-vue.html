@@ -1,0 +1,33 @@
+<head>
+    <style>
+        .active {
+            color: blue;
+        }
+    </style>
+</head>
+
+<div id="example">
+    <p v-bind:class="{active: isActive}">Original: {{mssg}}</p>
+    <p v-bind:class="obj">Reversed: {{rev_mssg}}</p>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var vm = new Vue({
+        el: '#example',
+        data: {
+            mssg: 'Hello',
+            isActive: true,
+        },
+        computed: {
+            rev_mssg: function() {
+                return this.mssg.split('').reverse().join('')
+            },
+            obj: function() {
+                return {
+                    active: this.isActive
+                }
+            }
+        }
+    })
+</script>
