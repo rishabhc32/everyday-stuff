@@ -1,0 +1,22 @@
+<div id="el">
+    <template v-if="loginType === 'username'">
+        <label>Username</label>
+        <input placeholder="Enter your username">
+    </template>
+    <template v-else>
+        <label>Email</label>
+        <input placeholder="Enter your email address">
+    </template>
+    <br>
+    <button @click="loginType = loginType === 'username' ? '' : 'username'  ">Click!</button>
+</div>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var vm = new Vue({
+        el: "#el",
+        data: {
+            loginType: ''
+        }
+    })
+</script>
