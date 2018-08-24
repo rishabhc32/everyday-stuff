@@ -16,7 +16,7 @@
                 <button v-bind:disabled="newItem.length === 0" v-on:click="saveItem" class="ui button">Add</button>
             </div>
             <div class="ui selection list">
-                <div v-for="i in items" @click="togglePurchase(i)" class="item" v-bind:class="{purchased: i.purchased}">
+                <div v-for="i in reverseItems" @click="togglePurchase(i)" class="item" v-bind:class="{purchased: i.purchased}">
                     <span>
                         <i class="angle right icon"></i>
                         {{ i.label }}
@@ -51,6 +51,11 @@
                         purchased: false
                     }
                 ]
+            },
+            computed: {
+                reverseItems: function() {
+                    return this.items.slice(0).reverse()
+                }
             },
             methods: {
                 saveItem: function() {
