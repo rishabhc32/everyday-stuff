@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
+    <title>Shopping List Vue</title>
+</head>
+<body>
+    <div class="ui container grid ">
+        <div id="shopping-list" class="column ui fluid card">
+            <h1 class="header">{{ header.toLocaleUpperCase() }}</h1>
+            <div class="ui action input">    
+                <input type="text" placeholder="Add Item">
+                <button class="ui button">Add</button>
+            </div>
+            <ul class="ui bulleted list">
+                <li v-for="i in items" class="item">{{ i }}</li>
+            </ul>
+        </div>
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#shopping-list",
+            data: {
+                header: "shopping list app",
+                newItem: '',
+                items : [
+                    '10 Oranges',
+                    '12 Bananas',
+                    '3 Apples'
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
