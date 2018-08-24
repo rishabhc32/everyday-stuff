@@ -1,4 +1,7 @@
-.purchased {
+.ui.selection.list > .item.purchased {
     text-decoration: line-through;
-    color: red;
+    color: red !important;
+}
+.ui.selection.list > .item {
+    color: black !important;
 }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
     <link rel="stylesheet" href="style.css">
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
     <title>Shopping List Vue</title>
 </head>
 <body>
@@ -15,8 +15,8 @@
                 <input @keyup.enter="saveItem" v-model="newItem" type="text" placeholder="Add Item">
                 <button v-bind:disabled="newItem.length === 0" v-on:click="saveItem" class="ui button">Add</button>
             </div>
-            <div class="ui list">
-                <div v-for="i in items" :class="{purchased: i.purchased}" class="item">
+            <div class="ui selection list">
+                <div v-for="i in items" @click="togglePurchase(i)" class="item" v-bind:class="{purchased: i.purchased}">
                     <span>
                         <i class="angle right icon"></i>
                         {{ i.label }}
@@ -59,6 +59,9 @@
                         purchased: false
                     })
                     this.newItem = ''
+                },
+                togglePurchase: function(item) {
+                    item.purchased = !item.purchased
                 }
             }
         })
