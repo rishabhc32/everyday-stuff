@@ -12,7 +12,7 @@
             <h1 class="header">{{ header.toLocaleUpperCase() }}</h1>
             <div class="ui action input">    
                 <input @keyup.enter="saveItem" v-model="newItem" type="text" placeholder="Add Item">
-                <button v-on:click="saveItem" class="ui button">Add</button>
+                <button v-bind:disabled="newItem.length === 0" v-on:click="saveItem" class="ui button">Add</button>
             </div>
             <ul class="ui bulleted list">
                 <li v-for="i in items" class="item">{{ i }}</li>
@@ -41,10 +41,8 @@
             },
             methods: {
                 saveItem: function() {
-                    if(this.newItem !== '') {
-                        this.items.push(this.newItem)
-                        this.newItem = ''
-                    }
+                    this.items.push(this.newItem)
+                    this.newItem = ''
                 }
             }
         })
