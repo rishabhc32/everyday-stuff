@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
+    <link rel="stylesheet" href="style.css">
     <title>Shopping List Vue</title>
 </head>
 <body>
@@ -14,9 +15,14 @@
                 <input @keyup.enter="saveItem" v-model="newItem" type="text" placeholder="Add Item">
                 <button v-bind:disabled="newItem.length === 0" v-on:click="saveItem" class="ui button">Add</button>
             </div>
-            <ul class="ui bulleted list">
-                <li v-for="i in items" class="item">{{ i }}</li>
-            </ul>
+            <div class="ui list">
+                <div v-for="i in items" :class="{purchased: i.purchased}" class="item">
+                    <span>
+                        <i class="angle right icon"></i>
+                        {{ i.label }}
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -34,14 +40,24 @@
                 header: "shopping list app",
                 newItem: '',
                 items : [
-                    '10 Oranges',
-                    '12 Bananas',
-                    '3 Apples'
+                    {
+                        label: '10 Oranges',
+                        purchased: false
+                    }, {
+                        label: '12 Bananas',
+                        purchased: false
+                    }, {
+                        label: '3 Apples',
+                        purchased: false
+                    }
                 ]
             },
             methods: {
                 saveItem: function() {
-                    this.items.push(this.newItem)
+                    this.items.push({
+                        label: this.newItem,
+                        purchased: false
+                    })
                     this.newItem = ''
                 }
             }
