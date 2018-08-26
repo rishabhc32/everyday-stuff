@@ -13,18 +13,18 @@ export default {
         TodoList
     },
 
-    data () {
+    data: function () {
         return {
             todos: [{
-                title: 'Todo A',
+                title: 'Todo First',
                 project: 'Project A',
                 done: false
             }, {
-                title: 'Todo B',
+                title: 'Todo Second',
                 project: 'Project B',
                 done: true
             }, {
-                title: 'Todo C',
+                title: 'Todo Third',
                 project: 'Project C',
                 done: false
             }]
