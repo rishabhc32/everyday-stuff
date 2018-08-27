@@ -15,14 +15,7 @@
                 <input @keyup.enter="saveItem" v-model="newItem" type="text" placeholder="Add Item">
                 <button v-bind:disabled="newItem.length === 0" v-on:click="saveItem" class="ui button">Add</button>
             </div>
-            <div class="ui selection list">
-                <div v-for="i in reverseItems" @click="togglePurchase(i)" class="item" v-bind:class="{purchased: i.purchased}">
-                    <span>
-                        <i class="angle right icon"></i>
-                        {{ i.label }}
-                    </span>
-                </div>
-            </div>
+            <list></list>
         </div>
     </div>
 
@@ -34,12 +27,13 @@
     <script src="https://unpkg.com/vue"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
     <script>
-        var vm = new Vue({
-            el: "#shopping-list",
-            data: {
-                header: "shopping list app",
-                newItem: '',
-                items : [
+        Vue.component('list', {
+            created: function() {
+                this.$root.$on('additem', this.saveItem)
+            },
+            data: function() {
+                return {
+                    items : [
                     {
                         label: '10 Oranges',
                         purchased: false
@@ -50,23 +44,51 @@
                         label: '3 Apples',
                         purchased: false
                     }
-                ]
+                    ]
+                }
+            },
+            methods: {
+                saveItem: function(newItem) {
+                    this.items.push({
+                        label: newItem,
+                        purchased: false
+                    })
+                },
+                togglePurchase: function(item) {
+                    item.purchased = !item.purchased
+                }
             },
             computed: {
                 reverseItems: function() {
                     return this.items.slice(0).reverse()
                 }
+            },  
+            template: 
+            `
+                <div class="ui selection list">
+                    <div v-for="i in reverseItems" @click="togglePurchase(i)" class="item" v-bind:class="{purchased: i.purchased}">
+                        <span>
+                            <i class="angle right icon"></i>
+                            {{ i.label }}
+                        </span>
+                    </div>
+                </div>
+            `
+        })
+    </script>
+    <script>
+        var vm = new Vue({
+            el: "#shopping-list",
+            data: {
+                header: "shopping list app",
+                newItem: '',
             },
             methods: {
                 saveItem: function() {
-                    this.items.push({
-                        label: this.newItem,
-                        purchased: false
-                    })
-                    this.newItem = ''
-                },
-                togglePurchase: function(item) {
-                    item.purchased = !item.purchased
+                    if(this.newItem.length !== 0) {
+                        this.$root.$emit('additem', this.newItem)
+                        this.newItem = ''
+                    }
                 }
             }
         })
