@@ -10,11 +10,8 @@
 <body>
     <div class="ui container grid ">
         <div id="shopping-list" class="column ui fluid card">
-            <h1 class="header">{{ header.toLocaleUpperCase() }}</h1>
-            <div class="ui action input">    
-                <input @keyup.enter="saveItem" v-model="newItem" type="text" placeholder="Add Item">
-                <button v-bind:disabled="newItem.length === 0" v-on:click="saveItem" class="ui button">Add</button>
-            </div>
+            <app-title></app-title>
+            <item-input></item-input>
             <list></list>
         </div>
     </div>
@@ -77,11 +74,11 @@
         })
     </script>
     <script>
-        var vm = new Vue({
-            el: "#shopping-list",
-            data: {
-                header: "shopping list app",
-                newItem: '',
+        Vue.component('item-input', {
+            data: function() {
+                return {
+                    newItem: ''
+                }
             },
             methods: {
                 saveItem: function() {
@@ -90,7 +87,32 @@
                         this.newItem = ''
                     }
                 }
-            }
+            },
+            template:
+            `
+                <div class="ui action input">    
+                    <input @keyup.enter="saveItem" v-model="newItem" type="text" placeholder="Add Item">
+                    <button v-bind:disabled="newItem.length === 0" v-on:click="saveItem" class="ui button">Add</button>
+                </div>
+            `
+        })
+    </script>
+    <script>
+        Vue.component('app-title', {
+            data: function() {
+                return {
+                    header: 'shopping list app'
+                }
+            },
+            template:
+            `
+                <h1 class="header">{{ header.toLocaleUpperCase() }}</h1>
+            `
+        })
+    </script>
+    <script>
+        var vm = new Vue({
+            el: "#shopping-list"
         })
     </script>
 </body>
