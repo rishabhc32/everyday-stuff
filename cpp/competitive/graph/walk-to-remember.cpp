@@ -57,7 +57,11 @@ void doDfs(unsigned int i, vector<node>& Graph, unsigned int& cnt) {
 
 void printScc(vector<node>& graph, unsigned int n) {
     stack<unsigned int> s;
-    dfsStore(0, graph, s);
+
+    for(unsigned int i = 0 ; i < n ; ++i) {
+        if(!graph.at(i).visited)
+            dfsStore(i, graph, s);
+    }
 
     vector<node> ReverseGraph = reverseGraph(graph);
 
