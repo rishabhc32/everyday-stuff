@@ -1,4 +1,4 @@
-// Problem Statemnt -- https://www.geeksforgeeks.org/topological-sorting/
+// Problem Statement -- https://www.hackerearth.com/practice/algorithms/graphs/topological-sort/tutorial/
 
 #include <bits/stdc++.h>
 
@@ -6,17 +6,17 @@ using namespace std;
 
 struct node {
     int visited = 0;
-    list<int> l;
+    set<int, std::greater<int>> l;
 };
 
 void addEdge(vector<node>& graph, int u, int v) {
-    graph.at(u).l.push_back(v);
+    graph.at(u).l.insert(v);
 }
 
 void doDFS(vector<node>& Graph, int v, stack<int>& s) {
     Graph.at(v).visited = true;
 
-    for(int& i : Graph.at(v).l) {
+    for(const int& i : Graph.at(v).l) {
         if(!Graph.at(i).visited) 
             doDFS(Graph, i, s);
     }
@@ -27,7 +27,7 @@ void doDFS(vector<node>& Graph, int v, stack<int>& s) {
 void printTopo(vector<node>& Graph) {
     stack<int> s;
 
-    for(int i = 0; i < Graph.size(); ++i) {
+    for(int i = Graph.size()-1; i >= 0; --i) {
         if(!Graph.at(i).visited)
             doDFS(Graph, i, s);
     }
