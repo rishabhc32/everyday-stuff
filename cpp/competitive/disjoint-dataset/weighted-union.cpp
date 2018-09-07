@@ -44,6 +44,9 @@ void WeightedUnion(int a, int b) {
     int r_a = root(a);
     int r_b = root(b);
 
+    if(r_a == r_b)
+        return;
+
     if(Arr.at(r_a).size < Arr.at(r_b).size) {
         Arr.at(r_a).val = Arr.at(r_b).val;
         Arr.at(r_b).size +=  Arr.at(r_a).size;
