@@ -21,10 +21,22 @@ void init(int n) {
     }
 }
 
+/*
 int root(int i) {
     while(Arr.at(i).val != i)
         i = Arr.at(i).val;
     
+    return i;
+}
+*/
+
+// Root with path compression
+int root(int i) {
+    while(Arr.at(i).val != i) {
+        Arr.at(i).val = Arr.at(Arr.at(i).val).val;
+        i = Arr.at(i).val;
+    }
+
     return i;
 }
 
