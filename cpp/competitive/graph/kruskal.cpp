@@ -1,3 +1,5 @@
+// Problem Statement -- https://www.hackerearth.com/practice/algorithms/graphs/minimum-spanning-tree/tutorial/
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -63,7 +65,7 @@ int Kruskal(vector<node>& Graph) {
     int minCost = 0;
 
     for(auto& i : Graph) {
-        
+
         if(!Find(i.edgde.first, i.edgde.second)) {
             WeightedUnion(i.edgde.first, i.edgde.second);
             minCost += i.weight;
