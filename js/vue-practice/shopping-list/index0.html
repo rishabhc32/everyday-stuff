@@ -59,11 +59,13 @@
             },
             methods: {
                 saveItem: function() {
-                    this.items.push({
-                        label: this.newItem,
-                        purchased: false
-                    })
-                    this.newItem = ''
+                    if(this.newItem !== '') {
+                        this.items.push({
+                            label: this.newItem,
+                            purchased: false
+                        })
+                        this.newItem = ''
+                    }
                 },
                 togglePurchase: function(item) {
                     item.purchased = !item.purchased
