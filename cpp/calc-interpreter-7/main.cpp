@@ -13,6 +13,9 @@ int main(){
 			return 0;
 		}
 
+		Lexer lexer1("jellp");
+
+
 		Lexer lexer(input);
 		Parser parser(lexer);
 		Interpreter interpreter(parser);
