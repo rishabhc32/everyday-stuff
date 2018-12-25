@@ -13,6 +13,12 @@ function Square(props) {
     );
 }
 
+function Reset(props) {
+    return (
+        <button onClick={props.onClick}>Reset</button>
+    );
+}
+
 class Board extends React.Component {
     constructor(props) {
         super(props);
@@ -32,6 +38,13 @@ class Board extends React.Component {
         this.setState({
             squares: newSquares,
             xIsNext: !this.state.xIsNext,
+        });
+    }
+
+    handleReset() {
+        this.setState({
+            squares: Array(9).fill(null),
+            xIsNext: true,
         });
     }
 
@@ -70,6 +83,10 @@ class Board extends React.Component {
                     {this.renderSquare(6)}
                     {this.renderSquare(7)}
                     {this.renderSquare(8)}
+                </div>
+                <div>
+                    <br></br>
+                    <Reset onClick={() => this.handleReset()} />
                 </div>
             </div>
         );
