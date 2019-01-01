@@ -4,7 +4,8 @@
   "description": "node-addon-api hello world",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "configure": "npx node-gyp configure",
+    "build": "npx node-gyp build"
   },
   "author": "RC",
   "license": "MIT",
