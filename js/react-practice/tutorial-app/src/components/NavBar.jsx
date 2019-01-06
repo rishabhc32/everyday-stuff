@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 function NavBar() {
     return(
         <div>
-            <AppBar position="fixed">
+            <AppBar position="static">
                 <Toolbar>
                     <Typography variant="title" color="inherit">
                         React and Material-UI Sample APP
