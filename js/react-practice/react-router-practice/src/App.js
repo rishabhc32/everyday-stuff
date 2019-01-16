@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Route, Link} from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 
 const Courses = ({match}) => (
@@ -12,17 +11,11 @@ const Courses = ({match}) => (
         </ul>
 
         <Route 
-            exact
-            path={`${match.path}/technology`}
-            render={() => (<div>This is technology</div>)}
-        />
-        <Route 
-            path={`${match.path}/business`}
-            component={() => (<div>This is business</div>)}
-        />
-        <Route 
-            path={`${match.path}/economics`}
-            render={() => (<div>This is economics</div>)}
+            exact 
+            path={`${match.path}/:course`} 
+            render={({match}) => (
+                <div> This is {match.params.course} </div>
+            )} 
         />
     </div>
 );
