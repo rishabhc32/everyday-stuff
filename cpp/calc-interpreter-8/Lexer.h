@@ -5,8 +5,9 @@
 
 class Lexer{
 	std::string text;
- 	int pos;
+ 	long unsigned int pos;
  	char current_char;
+
  public:
 	Lexer(std::string text);
 

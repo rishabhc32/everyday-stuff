@@ -1,16 +1,37 @@
 #include <string>
 #include "Token.h"
 #include "Parser.h"
+#include "Interpreter.h"
 
-/* -------------Tree Class-----------------------*/
-Tree::Tree(Token arg): token(arg) {
-	this->left = nullptr;
-	this->right = nullptr;
+/* -------------Num Class-----------------------*/
+Num::Num(Token arg_token)
+	: token(arg_token) {}
+
+int Num::visit(Interpreter &interpreter) {
+	return interpreter.visit(*this);
 }
 
-Tree::Tree(Tree *left, Token arg, Tree *right): token(arg) {
+/* -------------BinOp Class-----------------------*/
+BinOp::BinOp(AST *left, Token arg_token, AST *right)
+	: token(arg_token) {
+	this->token = arg_token;
 	this->left = left;
 	this->right = right;
+}
+
+int BinOp::visit(Interpreter &interpreter) {
+	return interpreter.visit(*this);
+}
+
+/* -------------UnaryOp Class-----------------------*/
+UnaryOp::UnaryOp(Token arg_token, AST *expr)
+	: token(arg_token) {
+	this->token = arg_token;
+	this->expr = expr;
+}
+
+int UnaryOp::visit(Interpreter &interpreter) {
+	return interpreter.visit(*this);
 }
 
 /* -------------Parser Class-----------------------*/
@@ -28,25 +49,44 @@ void Parser::eat(literal type) {
 		this->error();
 }
 
-Tree* Parser::factor() {
-	// factor: INTEGER | LPAREN EXPR RPAREN
+AST* Parser::factor() {
+	// factor : (PLUS | MINUS) factor | INTEGER | LPAREN expr RPAREN"
 	Token token = this->current_token;
-	if( token.get_type() == INTEGER ) {
-		this->eat(INTEGER);
-		Tree *t = new Tree(token);
-		return t;
+
+	AST *node = nullptr;
+
+	switch(token.get_type()) {
+		case PLUS:
+			this->eat(PLUS);
+			node = new UnaryOp(token, this->factor());
+			break;
+		
+		case MINUS:
+			this->eat(MINUS);
+			node = new UnaryOp(token, this->factor());
+			break;
+
+		case INTEGER:
+			this->eat(INTEGER);
+			node = new Num(token);
+			break;
+		
+		case LPAREN:
+			this->eat(LPAREN);
+			node = this->expr();
+			this->eat(RPAREN);
+			break;
+
+		default: 
+			this->error();
 	}
-	else if(token.get_type() == LPAREN) {
-		this->eat(LPAREN);
-		Tree *t = this->expr();
-		this->eat(RPAREN);
-		return t;
-	}
+
+	return node;
 }
 
-Tree* Parser::term() {
+AST* Parser::term() {
 	// term: factor ((MUL | DIV) factor)*
-	Tree *t = this->factor();
+	AST *node = this->factor();
 
 	while(current_token.get_type() == MUL || current_token.get_type() == DIV) {
 		Token token = this->current_token;
@@ -55,33 +95,39 @@ Tree* Parser::term() {
 		else if(token.get_type() == DIV)
 			this->eat(DIV);
 
-		t = new Tree(t, token, this->factor());
+		node = new BinOp(node, token, this->factor());
 	}
 
-	return t;
+	return node;
 }
 
-Tree* Parser::expr() {
+AST* Parser::expr() {
 	/*
 	expr   : term ((PLUS | MINUS) term)*
     term   : factor ((MUL | DIV) factor)*
     factor : INTEGER | LPAREN expr RPAREN
     */
-	Tree *t = this->term();
+	AST *node = this->term();
 
     while(current_token.get_type() == PLUS || current_token.get_type() == MINUS) {
        	Token token = this->current_token;
-       	if(token.get_type() == PLUS)
+       	
+		if(token.get_type() == PLUS)
        		this->eat(PLUS);
        	else if(token.get_type() == MINUS)
        		this->eat(MINUS);
 
-       	t = new Tree(t, token, this->term());
+       	node = new BinOp(node, token, this->term());
     }
 
-    return t;
+    return node;
 }
 
-Tree* Parser::parse() {
-	return this->expr();
+AST* Parser::parse() {
+	AST *node = this->expr();
+	
+	if(this->current_token.get_type() != EOFE)
+		this->error();
+	
+	return node;
 }

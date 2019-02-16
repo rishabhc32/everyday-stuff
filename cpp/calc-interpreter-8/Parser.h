@@ -2,13 +2,37 @@
 #define __PARSER_H__
 #include "Lexer.h"
 
-class Tree {
+class Interpreter;
+
+class AST {
+public:
+	virtual int visit(Interpreter &) = 0;
+};
+
+class Num: public AST {
 public:
 	Token token;
-	Tree *left, *right;
-	
-	Tree(Token arg);
-	Tree(Tree *left, Token arg, Tree *right);
+
+	Num(Token);
+	int visit(Interpreter &) override;
+};
+
+class BinOp: public AST {
+public:
+	AST *left, *right;
+	Token token;
+
+	BinOp(AST*, Token, AST*);
+	int visit(Interpreter &) override;
+};
+
+class UnaryOp: public AST {
+public:
+	AST* expr;
+	Token token;
+
+	UnaryOp(Token, AST*);
+	int visit(Interpreter &) override;
 };
 
 class Parser {
@@ -20,11 +44,11 @@ public:
 	void error();
 	void eat(literal type);
 
-	Tree *factor();
-	Tree *term();
-	Tree *expr();
+	AST *factor();
+	AST *term();
+	AST *expr();
 
-	Tree *parse();
+	AST *parse();
 };
 
 #endif

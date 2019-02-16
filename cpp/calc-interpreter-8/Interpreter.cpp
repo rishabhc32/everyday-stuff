@@ -4,29 +4,43 @@
 
 Interpreter::Interpreter(Parser arg): parser(arg){}
 
-int Interpreter::visit(AST *t) {
-	if(t->token.get_type() == INTEGER)
-		return visit_Num(t);
-	else 
-		return visit_BinOp(t, t->token.get_type());
+int Interpreter::visit(Num &node) {
+	return node.token.get_value();
 }
 
-int Interpreter::visit_BinOp(AST *t, literal type) {
-	if( type == PLUS )
-		return this->visit(t->left) + this->visit(t->right);
-	else if( type == MINUS )
-		return this->visit(t->left) - this->visit(t->right);
-	else if( type == MUL )
-		return this->visit(t->left) * this->visit(t->right);
-	else if( type == DIV )
-		return this->visit(t->left) / this->visit(t->right);
+int Interpreter::visit(BinOp &node) {
+	literal type = node.token.get_type();
+
+	switch(type) {
+		case PLUS:
+			return 
+				node.left->visit(*this) + node.right->visit(*this);
+
+		case MINUS:
+			return 
+				node.left->visit(*this) - node.right->visit(*this);
+
+		case MUL:
+			return 
+				node.left->visit(*this) * node.right->visit(*this);
+
+		case DIV:
+			return 
+				node.left->visit(*this) / node.right->visit(*this);
+
+	}
 }
 
-int Interpreter::visit_Num(AST *t) {
-	return t->token.get_value();
+int Interpreter::visit(UnaryOp &node) {
+	literal type = node.token.get_type();
+
+	if(type == PLUS) 
+		return +node.expr->visit(*this);
+	else if(type == MINUS)
+		return -node.expr->visit(*this);
 }
 
 int Interpreter::interpret() {
-	AST *t = this->parser.parse();
-	return this->visit(t);
+	AST* tree = this->parser.parse();
+	return tree->visit(*this);
 }
