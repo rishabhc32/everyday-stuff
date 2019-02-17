@@ -15,10 +15,11 @@ class Lexer{
 
  	void advance();
 	void skip_whitespace();
-	int get_integer();
+	std::string get_integer();
 	char peek();
 	
 	Token get_next_token();
+	Token _id();
 };
 
 #endif

@@ -25,6 +25,8 @@ public:
 	Token token;
 	AST *right;
 
+	Assign(AST *, Token, AST *);
+
 	int visit(Interpreter &) override;
 };
 
@@ -32,10 +34,14 @@ class Var: public AST {
 public:
 	Token token;
 
+	Var(Token);
+
+	int visit(Interpreter &) override;
 };
 
 class NoOp: public AST {
-
+public:
+	int visit(Interpreter &) override;
 };
 
 class Num: public AST {

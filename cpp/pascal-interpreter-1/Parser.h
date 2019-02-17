@@ -1,40 +1,11 @@
 #ifndef __PARSER_H__
 #define __PARSER_H__
 
+#include <vector>
 #include "Lexer.h"
+#include "AST.h"
 
-class Interpreter;
-
-class AST {
-public:
-	virtual int visit(Interpreter &) = 0;
-};
-
-class Num: public AST {
-public:
-	Token token;
-
-	Num(Token);
-	int visit(Interpreter &) override;
-};
-
-class BinOp: public AST {
-public:
-	AST *left, *right;
-	Token token;
-
-	BinOp(AST*, Token, AST*);
-	int visit(Interpreter &) override;
-};
-
-class UnaryOp: public AST {
-public:
-	AST* expr;
-	Token token;
-
-	UnaryOp(Token, AST*);
-	int visit(Interpreter &) override;
-};
+class AST;
 
 class Parser {
 	Lexer lexer;
@@ -45,9 +16,16 @@ public:
 	void error();
 	void eat(literal type);
 
-	AST *factor();
-	AST *term();
-	AST *expr();
+	AST * progrm();
+	AST * compound_statement();
+	std::vector<AST *> statement_list();
+	AST * statement();
+	AST * assignment_statement();
+	AST * variable();
+	AST * empty();
+	AST * factor();
+	AST * term();
+	AST * expr();
 
 	AST *parse();
 };

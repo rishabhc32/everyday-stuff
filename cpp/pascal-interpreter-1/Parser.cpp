@@ -3,38 +3,6 @@
 #include "Parser.h"
 #include "Interpreter.h"
 
-/* -------------Num Class-----------------------*/
-Num::Num(Token arg_token)
-	: token(arg_token) {}
-
-int Num::visit(Interpreter &interpreter) {
-	return interpreter.visit(*this);
-}
-
-/* -------------BinOp Class-----------------------*/
-BinOp::BinOp(AST *left, Token arg_token, AST *right)
-	: token(arg_token) {
-	this->token = arg_token;
-	this->left = left;
-	this->right = right;
-}
-
-int BinOp::visit(Interpreter &interpreter) {
-	return interpreter.visit(*this);
-}
-
-/* -------------UnaryOp Class-----------------------*/
-UnaryOp::UnaryOp(Token arg_token, AST *expr)
-	: token(arg_token) {
-	this->token = arg_token;
-	this->expr = expr;
-}
-
-int UnaryOp::visit(Interpreter &interpreter) {
-	return interpreter.visit(*this);
-}
-
-/* -------------Parser Class-----------------------*/
 Parser::Parser(Lexer arg)
 	: lexer(arg), current_token(this->lexer.get_next_token()) {}
 
@@ -49,8 +17,95 @@ void Parser::eat(literal type) {
 		this->error();
 }
 
+AST* Parser::progrm() {
+	// program: compound_statement DOT
+	AST *node = this->compound_statement();
+	this->eat(DOT);
+	return node;
+}
+
+AST* Parser::compound_statement() {
+	// compound_statement: BEGIN statement_list END
+	this->eat(BEGIN);
+	std::vector<AST *> nodes = this->statement_list();
+	this->eat(END);
+
+	Compound *root = new Compound();  
+	root->children = nodes;
+
+	return root;
+}
+
+std::vector<AST *> Parser::statement_list() {
+	/*
+	statement_list : statement
+                   | statement SEMI statement_list
+	*/
+	AST *node = this->statement();
+	std::vector<AST *> results = {node};
+
+	while(this->current_token.get_type() == SEMI ) {
+		this->eat(SEMI);
+		results.push_back(this->statement());
+	}
+
+	if(this->current_token.get_type() == ID) 
+		this->error();
+	
+	return results;
+}
+
+AST* Parser::statement() {
+	/*
+	statement : compound_statement
+              | assignment_statement
+              | empty
+	*/
+	literal type = this->current_token.get_type();
+	AST *node = nullptr;
+
+	if(type == BEGIN) 
+		node = this->compound_statement();
+	else if(type == ID)
+		node = this->assignment_statement();
+	else 
+		node = this->empty();
+	
+	return node;
+}
+
+AST* Parser::assignment_statement() {
+	// assignment_statement : variable ASSIGN expr
+	AST *left = this->variable();
+	Token token = this->current_token;
+	
+	this->eat(ASSIGN);
+
+	AST *right = this->expr();
+	AST *node = new Assign(left, token, right);
+
+	return node;
+}
+AST* Parser::variable() {
+	// variable: ID
+	AST *node = new Var(this->current_token);
+	this->eat(ID);
+
+	return node;
+}
+
+AST* Parser::empty() {
+	return new NoOp();
+}
+
 AST* Parser::factor() {
-	// factor : (PLUS | MINUS) factor | INTEGER | LPAREN expr RPAREN"
+	/*
+	factor : PLUS  factor
+              | MINUS factor
+              | INTEGER
+              | LPAREN expr RPAREN
+              | variable
+	*/
 	Token token = this->current_token;
 
 	AST *node = nullptr;
@@ -76,9 +131,10 @@ AST* Parser::factor() {
 			node = this->expr();
 			this->eat(RPAREN);
 			break;
-
+	
 		default: 
-			this->error();
+			node = this->variable();
+			break;
 	}
 
 	return node;
@@ -124,7 +180,7 @@ AST* Parser::expr() {
 }
 
 AST* Parser::parse() {
-	AST *node = this->expr();
+	AST *node = this->progrm();
 	
 	if(this->current_token.get_type() != EOFE)
 		this->error();

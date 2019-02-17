@@ -1,17 +1,19 @@
 #ifndef __TOKEN_H__
 #define __TOKEN_H__
 
-enum  literal {INTEGER, MUL, PLUS, MINUS, DIV, LPAREN, RPAREN, EOFE};
+#include <unordered_map>
+
+enum class literal {INTEGER, PLUS, MINUS, MUL, DIV, LPAREN, RPAREN, ID, ASSIGN, BEGIN, END, SEMI, DOT, EOFE};
 
 class Token{
 	literal type;
- 	int value;
+	std::string value;
 
 public:
- 	Token(literal type, int value);
+	Token(literal, std::string);
 
  	literal get_type();
- 	int get_value();
+	std::string get_value();
 };
 
 #endif
