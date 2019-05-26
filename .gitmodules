@@ -1,3 +1,7 @@
 [submodule "hugo/themes/material"]
 	path = hugo/themes/material
 	url = https://github.com/Xzya/hugo-material-blog.git
+[submodule "speeks-frontend"]
+	path = speeks-frontend
+	url = /home/spooderman/Documents/speeks-frontend/
+	branch = master
