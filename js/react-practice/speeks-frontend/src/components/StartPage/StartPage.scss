@@ -1,0 +1,26 @@
+.nav-text-icon {
+    $padding-left-right: 2rem;
+
+    font-size: 2rem;
+    padding-left: $padding-left-right;
+    padding-right: $padding-left-right;
+
+    img {
+        height: 3rem;
+        width: 4rem;
+        padding-right: 0;
+    }
+}
+
+.hero-title {
+    padding-bottom: 20px;
+}
+
+.hero-subtitle-container {
+    text-align: justify;
+    text-align-last: center;
+}
+
+.start-button-container {
+    padding-top: 10px;
+}
