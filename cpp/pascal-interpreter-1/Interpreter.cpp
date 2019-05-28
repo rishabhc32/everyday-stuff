@@ -8,23 +8,29 @@ int Interpreter::visit(Num &node) {
 	return node.token.get_value();
 }
 
+void Interpreter::visit(Compound &node) {
+	for(AST *child : node.children) {
+		child->visit(*this);
+	}
+}
+
 int Interpreter::visit(BinOp &node) {
 	literal type = node.token.get_type();
 
 	switch(type) {
-		case PLUS:
+		case literal::PLUS:
 			return 
 				node.left->visit(*this) + node.right->visit(*this);
 
-		case MINUS:
+		case literal::MINUS:
 			return 
 				node.left->visit(*this) - node.right->visit(*this);
 
-		case MUL:
+		case literal::MUL:
 			return 
 				node.left->visit(*this) * node.right->visit(*this);
 
-		case DIV:
+		case literal::DIV:
 			return 
 				node.left->visit(*this) / node.right->visit(*this);
 
@@ -34,9 +40,9 @@ int Interpreter::visit(BinOp &node) {
 int Interpreter::visit(UnaryOp &node) {
 	literal type = node.token.get_type();
 
-	if(type == PLUS) 
+	if(type == literal::PLUS) 
 		return +node.expr->visit(*this);
-	else if(type == MINUS)
+	else if(type == literal::MINUS)
 		return -node.expr->visit(*this);
 }
 
