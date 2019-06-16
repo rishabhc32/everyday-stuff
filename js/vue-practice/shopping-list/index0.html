@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,4 +75,80 @@
         })
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
+    <title>Shopping List Vue</title>
+</head>
+<body>
+    <div class="ui container grid ">
+        <div id="shopping-list" class="column ui fluid card">
+            <h1 class="header">{{ header.toLocaleUpperCase() }}</h1>
+            <div class="ui action input">    
+                <input @keyup.enter="saveItem" v-model="newItem" type="text" placeholder="Add Item">
+                <button v-bind:disabled="newItem.length === 0" v-on:click="saveItem" class="ui button">Add</button>
+            </div>
+            <div class="ui selection list">
+                <div v-for="i in reverseItems" @click="togglePurchase(i)" class="item" v-bind:class="{purchased: i.purchased}">
+                    <span>
+                        <i class="angle right icon"></i>
+                        {{ i.label }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous">
+    </script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#shopping-list",
+            data: {
+                header: "shopping list app",
+                newItem: '',
+                items : [
+                    {
+                        label: '10 Oranges',
+                        purchased: false
+                    }, {
+                        label: '12 Bananas',
+                        purchased: false
+                    }, {
+                        label: '3 Apples',
+                        purchased: false
+                    }
+                ]
+            },
+            computed: {
+                reverseItems: function() {
+                    return this.items.slice(0).reverse()
+                }
+            },
+            methods: {
+                saveItem: function() {
+                    this.items.push({
+                        label: this.newItem,
+                        purchased: false
+                    })
+                    this.newItem = ''
+                },
+                togglePurchase: function(item) {
+                    item.purchased = !item.purchased
+                }
+            }
+        })
+    </script>
+</body>
+>>>>>>> Stashed changes
 </html>
