@@ -19,7 +19,7 @@ __Steps involved:__
 
 ### Notes
 * Initially I tried `POP3` to read emails but it was doing weird shit, so switched to `IMAP`.
-* The stickers request is still pending, I have mailed to them. Waiting for the response.
+* ~~The stickers request is still pending, I have mailed to them. Waiting for the response.~~ Update, I received stickers after 2-3 weeks.
 * __Defualt password__ for each account, __imap host__, __imap account__ and __password__ are all set as `environment variable`. If they are not set, `exception` will be raised.
     * `export PASSWORD=password`, for _default password_
     * `export IMAP_HOST=host`, for _IMAP_HOST_
